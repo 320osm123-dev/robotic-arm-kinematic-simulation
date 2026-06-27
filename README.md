@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="cad_model.png" width="200">
-  <img src="demo.gif" width="300">
+  <img src="demo.gif" width="200">
 </p>
 
 <p align="center">
@@ -16,7 +16,7 @@
 This project extends a conventional 2-DOF robot arm with a parallelogram linkage structure.  
 The linkage allows the end-effector to maintain a constant orientation while following a circular trajectory in the y-z plane.
 
-The desired trajectory coordinates are converted into motor angles through kinematic analysis.
+The desired trajectory coordinates are converted into shoulder and elbow motor angles through kinematic analysis.
 
 $$
 (y_d(\alpha),z_d(\alpha)) \rightarrow (\beta_1(\alpha),\beta_2(\alpha))
@@ -25,36 +25,8 @@ $$
 The simulation verifies that the end-effector traces a circular path while maintaining a constant orientation.
 
 $$
-\theta_{EE} = const
+\theta_{EE} = \pi - C_3
 $$
-
----
-
-## Variable Definition
-
-| Variable | Description |
-|---|---|
-| `y, z` | Target end-effector coordinate in the y-z plane |
-| `P(y,z)` | Target point of the end-effector |
-| `Pd(α)` | Desired point on the circular trajectory |
-| `yd(α), zd(α)` | Desired y and z coordinates of the circular trajectory |
-| `yc, zc` | Center coordinate of the circular trajectory |
-| `R` | Radius of the circular trajectory |
-| `α` | Trajectory parameter angle |
-| `L1, L2` | Effective link lengths of the equivalent 2-link model |
-| `r` | Distance from the base joint to the target point |
-| `C` | Auxiliary variable obtained from the cosine law |
-| `t2` | Relative angle between the two effective links |
-| `k1, k2` | Auxiliary terms used in inverse kinematics |
-| `β1` | First motor angle |
-| `β2` | Second motor angle |
-| `β3` | Auxiliary linkage angle |
-| `θ1 ~ θ6` | Internal geometric angles of the linkage mechanism |
-| `C1 ~ C4` | Constant angles determined by the linkage geometry |
-| `θEE` | End-effector orientation angle |
-| `const` | Constant value during motion |
-
-All angles are expressed in radians in the derivation.
 
 ---
 
@@ -66,7 +38,7 @@ This project consists of three parts.
    Design of a 2-DOF robot arm extended with a parallelogram linkage.
 
 2. **Kinematic Analysis**  
-   Conversion of the target coordinate into motor angles and derivation of the constant end-effector orientation condition.
+   Conversion of the target coordinate into shoulder and elbow motor angles.
 
 3. **Circular Trajectory Simulation**  
    MATLAB simulation to verify whether the end-effector can trace a circular trajectory while maintaining its orientation.
@@ -111,6 +83,26 @@ $$
 <p align="center">
   <b>Fig. 3. Angle definition in the front-right configuration</b>
 </p>
+
+---
+
+### Variable Definition
+
+| Variable | Description |
+|---|---|
+| `y, z` | Target end-effector coordinate |
+| `yd, zd` | Desired circular trajectory coordinate |
+| `yc, zc` | Center of the circular trajectory |
+| `R` | Radius of the circular trajectory |
+| `α` | Circular trajectory parameter |
+| `L1, L2` | Effective link lengths |
+| `β1` | Shoulder motor angle |
+| `β2` | Elbow motor angle |
+| `θ1 ~ θ6` | Internal linkage angles |
+| `C1 ~ C4` | Constant geometric angles |
+| `θEE` | End-effector orientation angle |
+
+All angles are expressed in radians.
 
 ---
 
@@ -225,7 +217,7 @@ $$
 $$
 
 $$
-\theta_6 = C_3 = const
+\theta_6 = C_3
 $$
 
 The end-effector orientation angle is defined as
@@ -238,10 +230,6 @@ $$
 \theta_{EE} = \pi - C_3
 $$
 
-$$
-\theta_{EE} = const
-$$
-
 ---
 
 ### Final Kinematic Result
@@ -251,11 +239,15 @@ $$
 $$
 
 $$
-\theta_6 = const
+\beta_1 = Shoulder\ Motor\ Angle
 $$
 
 $$
-\theta_{EE} = const
+\beta_2 = Elbow\ Motor\ Angle
+$$
+
+$$
+\theta_{EE} = \pi - C_3
 $$
 
 ---
@@ -287,7 +279,7 @@ $$
 The calculated motor angles are applied to the linkage model, and the end-effector traces the circular path while maintaining a constant orientation.
 
 $$
-\theta_{EE} = const
+\theta_{EE} = \pi - C_3
 $$
 
 ---
@@ -337,7 +329,7 @@ $$
 P_d(\alpha) = (y_d(\alpha),z_d(\alpha))
 $$
 
-Each point of the trajectory is converted into motor angles.
+Each point of the trajectory is converted into shoulder and elbow motor angles.
 
 $$
 (y_d(\alpha),z_d(\alpha)) \rightarrow (\beta_1(\alpha),\beta_2(\alpha))
@@ -348,7 +340,7 @@ The simulation confirms that the end-effector traces a circular path.
 During the circular motion, the parallelogram linkage keeps the end-effector orientation constant.
 
 $$
-\theta_{EE} = const
+\theta_{EE} = \pi - C_3
 $$
 
 ---
@@ -357,7 +349,7 @@ $$
 
 This project demonstrates that a conventional 2-DOF robot arm can be extended with a parallelogram linkage to maintain a constant end-effector orientation.
 
-The derived kinematic equations convert the desired circular trajectory coordinates into motor angles.
+The derived kinematic equations convert the desired circular trajectory coordinates into shoulder and elbow motor angles.
 
 $$
 (y_d(\alpha),z_d(\alpha)) \rightarrow (\beta_1(\alpha),\beta_2(\alpha))
@@ -366,7 +358,7 @@ $$
 The MATLAB simulation verifies that the end-effector can trace a circular path while maintaining a constant orientation.
 
 $$
-\theta_{EE} = const
+\theta_{EE} = \pi - C_3
 $$
 
 ---
