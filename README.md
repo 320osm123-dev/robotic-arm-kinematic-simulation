@@ -1,167 +1,210 @@
 # Kinematic Analysis of a Closed-loop Robot Arm
 
-![CAD Model](assets/cad_model.png)
+<p align="center">
+  <img src="assets/cad_model.png" width="700">
+</p>
+
+<p align="center">
+  <b>Closed-loop robot arm mechanism for coordinate-based end-effector control</b>
+</p>
+
+---
 
 ## Abstract
 
-This project presents the design and kinematic analysis of a closed-loop robot arm.  
-The target end-effector position in the \(y-z\) plane is converted into two motor angles, \(\beta_1\) and \(\beta_2\).
+This project presents the design, kinematic analysis, and simulation of a closed-loop robot arm mechanism.
+The target end-effector position in the (y-z) plane is converted into two motor angles, (\beta_1) and (\beta_2).
 
-\[
+[
 (y,z)\rightarrow(\beta_1,\beta_2)
-\]
+]
 
-The closed-loop linkage also maintains a constant end-effector orientation.
+The closed-loop linkage also keeps the end-effector orientation constant.
 
-\[
-\theta_6=const \Rightarrow \phi_{EE}=const
-\]
+[
+\theta_6 = const \Rightarrow \phi_{EE}=const
+]
 
 ---
 
-## 1. Mechanical Design
+## Demo
+
+<p align="center">
+  <img src="assets/demo.gif" width="700">
+</p>
+
+<p align="center">
+  <b>Fig. 1. MATLAB simulation of the closed-loop robot arm</b>
+</p>
+
+---
+
+## Mechanical Design
+
+<p align="center">
+  <img src="assets/cad_model.png" width="700">
+</p>
+
+<p align="center">
+  <b>Fig. 2. CAD model of the robot arm</b>
+</p>
 
 The robot arm was designed as a closed-loop linkage mechanism with an end-effector module.
 
-**Fig. 1. CAD Model of the Robot Arm**
+---
 
-![CAD Model](assets/cad_model.png)
+## Mechanism Structure
+
+<p align="center">
+  <img src="assets/linkage_structure.png" width="600">
+</p>
+
+<p align="center">
+  <b>Fig. 3. Closed-loop linkage structure</b>
+</p>
+
+For kinematic analysis, the mechanism is simplified using two effective links, (L_1) and (L_2).
+
+[
+P(y,z),\quad L_1,\quad L_2,\quad \beta_1,\quad \beta_2
+]
 
 ---
 
-## 2. Simulation Demo
-
-The MATLAB simulation verifies the motion of the robot arm.
-
-**Fig. 2. MATLAB Simulation Demo**
-
-![Simulation Demo](assets/demo.gif)
-
----
-
-## 3. Mechanism Structure
-
-The mechanism consists of closed-loop linkages.  
-For kinematic analysis, the motion is simplified using two effective links, \(L_1\) and \(L_2\).
-
-**Fig. 3. Closed-loop Linkage Structure**
-
-![Linkage Structure](assets/linkage_structure.png)
-
-**Fig. 4. Equivalent Link Model**
-
-![Equivalent Link Model](assets/equivalent_link_model.png)
-
----
-
-## 4. Kinematic Modeling
+## Kinematic Modeling
 
 The target end-effector position is defined as
 
-\[
+[
 P(y,z)
-\]
+]
 
-\[
+[
 r^2=y^2+z^2
-\]
+]
 
-\[
+[
 C=
 \frac{y^2+z^2-L_1^2-L_2^2}{2L_1L_2}
-\]
+]
 
-\[
+[
 t_2=\cos^{-1}(C)
-\]
+]
 
-The first motor angle is obtained as
+The first motor angle is obtained from inverse kinematics.
 
-\[
+[
 \beta_1
-=
-\operatorname{atan2}(z,y)
--
+=======
+
+## \operatorname{atan2}(z,y)
+
 \operatorname{atan2}
 \left(
 L_2\sqrt{1-C^2},
 L_1+L_2C
 \right)
-\]
+]
 
 From the closed-loop constraint,
 
-\[
+[
 \theta_2=const=C_4
-\]
+]
 
-\[
+[
 \beta_2=\beta_1+C_4-t_2
-\]
+]
 
-Therefore, the target coordinate can be converted into motor angles.
+Therefore,
 
-\[
+[
 (y,z)\rightarrow(\beta_1,\beta_2)
-\]
+]
 
 ---
 
-## 5. Angle Definition
+## Angle Definition
 
-**Fig. 5. Upper Linkage Angle Definition**
+<p align="center">
+  <img src="assets/upper_angle_definition.png" width="600">
+</p>
 
-![Upper Angle Definition](assets/upper_angle_definition.png)
+<p align="center">
+  <b>Fig. 4. Upper linkage angle definition</b>
+</p>
 
-**Fig. 6. Lower Linkage Angle Definition**
+<p align="center">
+  <img src="assets/lower_angle_definition.png" width="600">
+</p>
 
-![Lower Angle Definition](assets/lower_angle_definition.png)
+<p align="center">
+  <b>Fig. 5. Lower linkage angle definition</b>
+</p>
 
 From the upper linkage constraint,
 
-\[
+[
 \theta_4=const=C_1
-\]
+]
 
-\[
+[
 \beta_1+(\pi-\theta_3)=const=C_2
-\]
+]
 
-\[
+[
 \theta_6=C_2-C_1
-\]
+]
 
 Thus,
 
-\[
+[
 \theta_6=const
-\]
+]
 
-Since the end-effector orientation is determined by \(\theta_6\),
+Since the end-effector orientation is determined by (\theta_6),
 
-\[
+[
 \phi_{EE}=const
-\]
+]
 
 ---
 
-## 6. Result
+## Result
 
-The desired end-effector coordinate can be converted into motor angles for position control.
+The target coordinate can be converted into motor angles for position control.
 
-\[
+[
 (y,z)\rightarrow(\beta_1,\beta_2)\rightarrow Motor\ Angle\ Control
-\]
+]
 
 The end-effector maintains a constant orientation during motion.
 
-\[
+[
 \theta_6=const \Rightarrow \phi_{EE}=const
-\]
+]
 
 ---
 
 ## Conclusion
 
-The proposed closed-loop robot arm converts the target end-effector coordinate into motor angles using inverse kinematics and geometric constraints.  
+The proposed closed-loop robot arm converts the target end-effector coordinate into motor angles using inverse kinematics and geometric constraints.
 The simulation confirms that coordinate-based position control is possible while maintaining a constant end-effector orientation.
+
+---
+
+## File Structure
+
+```text
+Closed-loop-Robot-Arm/
+├── README.md
+├── assets/
+│   ├── cad_model.png
+│   ├── demo.gif
+│   ├── linkage_structure.png
+│   ├── upper_angle_definition.png
+│   └── lower_angle_definition.png
+└── matlab/
+    └── robot_kinematics_simulation.m
+```
