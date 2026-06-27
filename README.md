@@ -58,7 +58,7 @@ $$
 $$
 
 <p align="center">
-  <img src="front_left_angle_definition.png" width="620">
+  <img src="front_left_angle_definition.png" width="200">
 </p>
 
 <p align="center">
@@ -66,7 +66,7 @@ $$
 </p>
 
 <p align="center">
-  <img src="front_right_angle_definition.png" width="620">
+  <img src="front_right_angle_definition.png" width="200">
 </p>
 
 <p align="center">
@@ -257,7 +257,7 @@ The MATLAB simulation was constructed using the linkage points and geometric con
 The numbered points represent the joints used in the simulation model.
 
 <p align="center">
-  <img src="simulation_structure_left.png" width="620">
+  <img src="simulation_structure_left.png" width="200">
 </p>
 
 <p align="center">
@@ -265,7 +265,7 @@ The numbered points represent the joints used in the simulation model.
 </p>
 
 <p align="center">
-  <img src="simulation_structure_right.png" width="620">
+  <img src="simulation_structure_right.png" width="200">
 </p>
 
 <p align="center">
@@ -277,7 +277,7 @@ The numbered points represent the joints used in the simulation model.
 ### Simulation Result
 
 <p align="center">
-  <img src="demo.gif" width="700">
+  <img src="demo.gif" width="300">
 </p>
 
 <p align="center">
