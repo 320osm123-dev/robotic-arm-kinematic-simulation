@@ -88,69 +88,21 @@ $$
 
 ### Variable Definition
 
-$$
-P = P(y,z)
-$$
+| Variable | Description |
+|---|---|
+| `y, z` | Target end-effector coordinate |
+| `yd, zd` | Desired circular trajectory coordinate |
+| `yc, zc` | Center of the circular trajectory |
+| `R` | Radius of the circular trajectory |
+| `α` | Circular trajectory parameter |
+| `L1, L2` | Effective link lengths |
+| `β1` | Shoulder motor angle |
+| `β2` | Elbow motor angle |
+| `θ1 ~ θ6` | Internal linkage angles |
+| `C1 ~ C4` | Constant geometric angles |
+| `θEE` | End-effector orientation angle |
 
-$$
-P_d(\alpha) = (y_d(\alpha),z_d(\alpha))
-$$
-
-$$
-y_d(\alpha) = y_c + R cos(\alpha)
-$$
-
-$$
-z_d(\alpha) = z_c + R sin(\alpha)
-$$
-
-$$
-L_1,\ L_2
-$$
-
-$$
-r^2 = y^2 + z^2
-$$
-
-$$
-C = {y^2 + z^2 - L_1^2 - L_2^2 \over 2L_1L_2}
-$$
-
-$$
-t_2 = cos^{-1}(C)
-$$
-
-$$
-k_1 = L_1 + L_2C
-$$
-
-$$
-k_2 = L_2\sqrt{1-C^2}
-$$
-
-$$
-\beta_1 = Shoulder\ Motor\ Angle
-$$
-
-$$
-\beta_2 = Elbow\ Motor\ Angle
-$$
-
-$$
-\beta_3 = Auxiliary\ Linkage\ Angle
-$$
-
-$$
-\theta_1,\theta_2,\theta_3,\theta_4,\theta_5,\theta_6
-$$
-
-$$
-C_1,\ C_2,\ C_3,\ C_4
-$$
-
-$$
-\theta_{EE} = End\ Effector\ Orientation\ Angle
-$$
+All angles are expressed in radians.
 
 ---
 
