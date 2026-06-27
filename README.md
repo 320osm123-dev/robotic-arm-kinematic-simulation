@@ -1,92 +1,91 @@
-<div align="center">
-
 # Ground-Parallel End-Effector Robotic Arm Simulation
 
-<b>MATLAB Kinematic Simulation of a Custom 2D Linkage Mechanism</b>
+**MATLAB Kinematic Simulation of a Custom 2D Linkage Mechanism**
 
-<sub>Ground-parallel end-effector mechanism for a harvesting robot arm</sub>
-
-</div>
+This project presents a MATLAB-based kinematic simulation of a custom planar robotic linkage mechanism for a harvesting robot arm.  
+The main objective is to verify whether the end-effector link remains parallel to the ground during motion.
 
 ---
 
-<table>
-<tr>
-<td width="38%" align="center" valign="top">
-
-<h3 align="center">CAD Model</h3>
-
-<img src="cad_model.png" width="40%">
-
-</td>
-<td width="62%" valign="top">
-
-<h3 align="center">Key Features</h3>
-
-<small>
-
-- End-effector is defined as **Link 1–2**
-- Maintains a ground-parallel end-effector posture during motion
-- Custom robotic arm mechanism modeled in CAD
-- 2D linkage simplification for kinematic simulation
-- Inverse-kinematics-based posture calculation
-- MATLAB kinematic simulation and animation
-- Designed for a harvesting robot arm mechanism
-
-</small>
-
-</td>
-</tr>
-</table>
+## Overview
 
 <p align="center">
-<sub>
-The mechanism was designed for a harvesting robot arm, and the main objective of this simulation is to verify whether the end-effector link remains parallel to the ground during motion.
-</sub>
+<img src="cad_model.png" width="40%">
 </p>
+
+<p align="center">
+<sub>Custom robotic arm CAD model</sub>
+</p>
+
+The robotic arm was first modeled as a custom linkage mechanism.  
+The MATLAB simulation simplifies this CAD model into a 2D linkage structure for kinematic analysis.
 
 ---
 
-<h2 align="center">2D Linkage Model</h2>
+## Project Objectives
+
+- Design a custom robotic arm mechanism for harvesting applications
+- Define the end-effector as **Link 1–2**
+- Maintain a ground-parallel end-effector posture during motion
+- Simplify the CAD model into a 2D linkage model
+- Calculate the linkage posture using inverse kinematics
+- Verify the mechanism behavior through MATLAB animation
+
+---
+
+## Method
+
+### 1. CAD-Based Mechanism Design
+
+The robotic arm was designed as a custom linkage mechanism for a harvesting robot arm.
+
+### 2. 2D Linkage Simplification
 
 <p align="center">
 <img src="mechanism_1.png" width="40%">
-&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
 <img src="mechanism_2.png" width="40%">
 </p>
 
----
+The CAD model was simplified into a 2D linkage structure while preserving the main geometric behavior of the mechanism.
 
-<h2 align="center">Kinematic Analysis</h2>
+### 3. Inverse Kinematics
 
-<table>
-<tr>
-<td width="45%" align="center" valign="top">
+The posture of the robotic arm is calculated using inverse kinematics.
 
-<h3 align="center">Inverse Kinematics</h3>
+$$
+r^2=y^2+z^2
+$$
 
-$$r^2=y^2+z^2$$
+$$
+c_2=\frac{r^2-L_1^2-L_2^2}{2L_1L_2}
+$$
 
-$$c_2=\frac{r^2-L_1^2-L_2^2}{2L_1L_2}$$
+$$
+t_2=\cos^{-1}(c_2)
+$$
 
-$$t_2=\cos^{-1}(c_2)$$
+$$
+k_1=L_1+L_2c_2
+$$
 
-$$k_1=L_1+L_2c_2$$
+$$
+k_2=L_2\sqrt{1-c_2^2}
+$$
 
-$$k_2=L_2\sqrt{1-c_2^2}$$
+$$
+\beta=\arctan\left(\frac{z}{y}\right)-\arctan\left(\frac{k_2}{k_1}\right)
+$$
 
-$$\beta=\arctan\left(\frac{z}{y}\right)-\arctan\left(\frac{k_2}{k_1}\right)$$
+$$
+\theta_1=\theta_2-t_2
+$$
 
-$$\theta_1=\theta_2-t_2$$
+$$
+abs_2=\beta+\theta_1
+$$
 
-$$abs_2=\beta+\theta_1$$
-
-</td>
-<td width="55%" valign="top">
-
-<h3 align="center">Variable Definitions</h3>
-
-<small>
+### Variable Definitions
 
 | Symbol | Description |
 |:---:|---|
@@ -103,35 +102,28 @@ $$abs_2=\beta+\theta_1$$
 | $\theta_2$ | Fixed structural link angle |
 | $abs_2$ | Absolute elbow angle |
 
-</small>
-
-</td>
-</tr>
-</table>
-
 ---
 
-<h2 align="center">MATLAB Simulation</h2>
+## Results
 
 <p align="center">
 <img src="demo.gif" width="60%">
 </p>
 
 <p align="center">
-<sub>
-The MATLAB animation verifies that the modeled robotic arm moves while maintaining the end-effector link parallel to the ground.
-</sub>
+<sub>MATLAB simulation of the ground-parallel end-effector mechanism</sub>
 </p>
+
+The MATLAB animation verifies that the modeled robotic arm moves while maintaining the end-effector link parallel to the ground.
 
 ---
 
-## Files
+## Repository Structure
 
-<small>
-
-- `robotic.m` : Main MATLAB simulation code
-- `demo.mp4` : MATLAB simulation video
-- `cad_model.png` : CAD model image
-- `mechanism_1.png`, `mechanism_2.png` : 2D linkage model images
-
-</small>
+```text
+robotic.m
+demo.gif
+demo.mp4
+cad_model.png
+mechanism_1.png
+mechanism_2.png
