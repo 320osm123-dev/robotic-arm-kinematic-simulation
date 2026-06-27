@@ -1,7 +1,7 @@
 # Kinematic Analysis of a Parallelogram Linkage Robot Arm
 
 <p align="center">
-  <img src="assets/cad_model.png" width="700">
+  <img src="cad_model.png" width="700">
 </p>
 
 <p align="center">
