@@ -12,16 +12,16 @@
 
 <table>
 <tr>
-<td width="45%" align="center" valign="middle">
+<td width="42%" align="center" valign="middle">
 
-<h3>CAD Model</h3>
+<h3 align="center">CAD Model</h3>
 
-<img src="cad_model.png" width="55%">
+<img src="cad_model.png" width="58%">
 
 </td>
-<td width="55%" valign="middle">
+<td width="58%" valign="middle">
 
-<h3>Key Features</h3>
+<h3 align="center">Key Features</h3>
 
 - End-effector is defined as **Link 1–2**
 - Maintains a ground-parallel end-effector posture during motion
@@ -47,41 +47,65 @@ The mechanism was designed for a harvesting robot arm, and the main objective of
 <tr>
 <td width="50%" align="center" valign="middle">
 
-<img src="mechanism_1.png" width="88%">
+<img src="mechanism_1.png" width="92%">
 
 </td>
 <td width="50%" align="center" valign="middle">
 
-$$r^2=y^2+z^2$$
-
-$$c_2=\frac{r^2-L_1^2-L_2^2}{2L_1L_2}$$
-
-$$t_2=\cos^{-1}(c_2)$$
-
-$$k_1=L_1+L_2c_2$$
-
-</td>
-</tr>
-
-<tr>
-<td width="50%" align="center" valign="middle">
-
-<img src="mechanism_2.png" width="88%">
-
-</td>
-<td width="50%" align="center" valign="middle">
-
-$$k_2=L_2\sqrt{1-c_2^2}$$
-
-$$\beta=\arctan\left(\frac{z}{y}\right)-\arctan\left(\frac{k_2}{k_1}\right)$$
-
-$$\theta_1=\theta_2-t_2$$
-
-$$abs_2=\beta+\theta_1$$
+<img src="mechanism_2.png" width="92%">
 
 </td>
 </tr>
 </table>
+
+<br>
+
+<div align="center">
+
+<table>
+<tr>
+<td width="48%" valign="top">
+
+$$
+r^2=y^2+z^2
+$$
+
+$$
+c_2=\frac{r^2-L_1^2-L_2^2}{2L_1L_2}
+$$
+
+$$
+t_2=\cos^{-1}(c_2)
+$$
+
+$$
+k_1=L_1+L_2c_2
+$$
+
+</td>
+<td width="52%" valign="top">
+
+$$
+k_2=L_2\sqrt{1-c_2^2}
+$$
+
+$$
+\beta=\arctan\left(\frac{z}{y}\right)-\arctan\left(\frac{k_2}{k_1}\right)
+$$
+
+$$
+\theta_1=\theta_2-t_2
+$$
+
+$$
+abs_2=\beta+\theta_1
+$$
+
+</td>
+</tr>
+</table>
+
+</div>
 
 ---
 
