@@ -12,14 +12,14 @@
 
 <table>
 <tr>
-<td width="42%" align="center" valign="middle">
+<td width="42%" align="center" valign="top">
 
 <h3 align="center">CAD Model</h3>
 
 <img src="cad_model.png" width="58%">
 
 </td>
-<td width="58%" valign="middle">
+<td width="58%" valign="top">
 
 <h3 align="center">Key Features</h3>
 
@@ -45,14 +45,14 @@ The mechanism was designed for a harvesting robot arm, and the main objective of
 
 <table>
 <tr>
-<td width="50%" align="center" valign="middle">
+<td width="50%" align="center" valign="top">
 
-<img src="mechanism_1.png" width="50%">
+<img src="mechanism_1.png" width="92%">
 
 </td>
-<td width="50%" align="center" valign="middle">
+<td width="50%" align="center" valign="top">
 
-<img src="mechanism_2.png" width="50%">
+<img src="mechanism_2.png" width="92%">
 
 </td>
 </tr>
@@ -60,52 +60,32 @@ The mechanism was designed for a harvesting robot arm, and the main objective of
 
 <br>
 
-<div align="center">
-
 <table>
 <tr>
-<td width="48%" valign="top">
+<td width="50%" align="center" valign="top">
 
-$$
-r^2=y^2+z^2
-$$
+$$r^2=y^2+z^2$$
 
-$$
-c_2=\frac{r^2-L_1^2-L_2^2}{2L_1L_2}
-$$
+$$c_2=\frac{r^2-L_1^2-L_2^2}{2L_1L_2}$$
 
-$$
-t_2=\cos^{-1}(c_2)
-$$
+$$t_2=\cos^{-1}(c_2)$$
 
-$$
-k_1=L_1+L_2c_2
-$$
+$$k_1=L_1+L_2c_2$$
 
 </td>
-<td width="52%" valign="top">
+<td width="50%" align="center" valign="top">
 
-$$
-k_2=L_2\sqrt{1-c_2^2}
-$$
+$$k_2=L_2\sqrt{1-c_2^2}$$
 
-$$
-\beta=\arctan\left(\frac{z}{y}\right)-\arctan\left(\frac{k_2}{k_1}\right)
-$$
+$$\beta=\arctan\left(\frac{z}{y}\right)-\arctan\left(\frac{k_2}{k_1}\right)$$
 
-$$
-\theta_1=\theta_2-t_2
-$$
+$$\theta_1=\theta_2-t_2$$
 
-$$
-abs_2=\beta+\theta_1
-$$
+$$abs_2=\beta+\theta_1$$
 
 </td>
 </tr>
 </table>
-
-</div>
 
 ---
 
