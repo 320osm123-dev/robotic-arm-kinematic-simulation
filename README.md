@@ -39,8 +39,8 @@ This project consists of three parts.
 2. **Kinematic Analysis**  
    Conversion of the target coordinate into motor angles and derivation of the constant end-effector orientation condition.
 
-3. **Simulation Verification**  
-   MATLAB simulation based on the derived kinematic model.
+3. **Circular Trajectory Simulation**  
+   MATLAB simulation to verify whether the end-effector can trace a circular trajectory while maintaining its orientation.
 
 ---
 
@@ -220,10 +220,6 @@ $$
 $$
 
 $$
-(\beta_1,\beta_2) \rightarrow Motor\ Angle\ Control
-$$
-
-$$
 \theta_6 = const
 $$
 
@@ -233,7 +229,39 @@ $$
 
 ---
 
-## Part 3. Simulation Verification
+## Part 3. Circular Trajectory Simulation
+
+The MATLAB simulation verifies whether the end-effector can trace a circular trajectory in the y-z plane.
+
+The desired circular trajectory is defined as
+
+$$
+P_d(\alpha) = (y_d(\alpha),z_d(\alpha))
+$$
+
+$$
+y_d(\alpha) = y_c + Rcos(\alpha)
+$$
+
+$$
+z_d(\alpha) = z_c + Rsin(\alpha)
+$$
+
+Each point on the circular trajectory is converted into motor angles using the derived kinematic equations.
+
+$$
+(y_d(\alpha),z_d(\alpha)) \rightarrow (\beta_1(\alpha),\beta_2(\alpha))
+$$
+
+The calculated motor angles are applied to the linkage model, and the end-effector traces the circular path while maintaining a constant orientation.
+
+$$
+\phi_{EE} = const
+$$
+
+---
+
+### Simulation Structure
 
 The MATLAB simulation was constructed using the linkage points and geometric constraints of the mechanism.  
 The numbered points represent the joints used in the simulation model.
@@ -254,37 +282,39 @@ The numbered points represent the joints used in the simulation model.
   <b>Fig. 5. Simulation linkage structure in the front-right configuration</b>
 </p>
 
+---
+
+### Simulation Result
+
 <p align="center">
   <img src="assets/demo.gif" width="700">
 </p>
 
 <p align="center">
-  <b>Fig. 6. MATLAB simulation result</b>
+  <b>Fig. 6. End-effector circular trajectory simulation</b>
 </p>
 
-The simulation verifies that the target coordinate can be converted into motor angles while maintaining a constant end-effector orientation.
+The simulation shows that the end-effector follows the circular trajectory generated in the y-z plane.
 
 ---
 
 ## Result
 
-The target coordinate is converted into two motor angles.
+The target circular trajectory is generated in the y-z plane.
 
 $$
-(y,z) \rightarrow (\beta_1,\beta_2)
+P_d(\alpha) = (y_d(\alpha),z_d(\alpha))
 $$
 
-The calculated motor angles are used for position control.
+Each point of the trajectory is converted into motor angles.
 
 $$
-(\beta_1,\beta_2) \rightarrow Motor\ Angle\ Control
+(y_d(\alpha),z_d(\alpha)) \rightarrow (\beta_1(\alpha),\beta_2(\alpha))
 $$
 
-The end-effector orientation remains constant due to the parallelogram linkage constraint.
+The simulation confirms that the end-effector traces a circular path.
 
-$$
-\theta_6 = const
-$$
+During the circular motion, the parallelogram linkage keeps the end-effector orientation constant.
 
 $$
 \phi_{EE} = const
@@ -296,21 +326,13 @@ $$
 
 This project demonstrates that a conventional 2-DOF robot arm can be extended with a parallelogram linkage to maintain a constant end-effector orientation.
 
-Through inverse kinematics and closed-loop geometric constraints, the target end-effector coordinate can be converted into motor angles.
+The derived kinematic equations convert the desired circular trajectory coordinates into motor angles.
 
 $$
-(y,z) \rightarrow (\beta_1,\beta_2)
+(y_d(\alpha),z_d(\alpha)) \rightarrow (\beta_1(\alpha),\beta_2(\alpha))
 $$
 
-The MATLAB simulation confirms that coordinate-based motor angle control is possible while maintaining a constant end-effector orientation.
-
-$$
-(y,z) \rightarrow (\beta_1,\beta_2) \rightarrow Motor\ Angle\ Control
-$$
-
-$$
-\theta_6 = const
-$$
+The MATLAB simulation verifies that the end-effector can trace a circular path while maintaining a constant orientation.
 
 $$
 \phi_{EE} = const
