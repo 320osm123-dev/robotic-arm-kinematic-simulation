@@ -47,12 +47,12 @@ The mechanism was designed for a harvesting robot arm, and the main objective of
 <tr>
 <td width="50%" align="center" valign="middle">
 
-<img src="mechanism_1.png" width="92%">
+<img src="mechanism_1.png" width="50%">
 
 </td>
 <td width="50%" align="center" valign="middle">
 
-<img src="mechanism_2.png" width="92%">
+<img src="mechanism_2.png" width="50%">
 
 </td>
 </tr>
