@@ -12,14 +12,14 @@
 
 <table>
 <tr>
-<td width="45%" align="center" valign="middle" style="padding: 18px;">
+<td width="45%" align="center" valign="middle">
 
-<h3 align="center">CAD Model</h3>
+<h3>CAD Model</h3>
 
 <img src="cad_model.png" width="55%">
 
 </td>
-<td width="55%" valign="middle" style="padding: 18px;">
+<td width="55%" valign="middle">
 
 <h3>Key Features</h3>
 
@@ -41,33 +41,43 @@ The mechanism was designed for a harvesting robot arm, and the main objective of
 
 ---
 
+<h2 align="center">2D Linkage Model & Inverse Kinematics</h2>
+
 <table>
 <tr>
-<td width="60%" align="center" valign="middle" style="padding: 18px;">
+<td width="50%" align="center" valign="middle">
 
-<h3 align="center">2D Linkage Model</h3>
-
-<img src="mechanism_1.png" width="49%">
-&nbsp;
-<img src="mechanism_2.png" width="49%">
+<img src="mechanism_1.png" width="88%">
 
 </td>
-<td width="40%" valign="middle" style="padding: 18px;">
+<td width="50%" align="center" valign="middle">
 
-<h3 align="center">Inverse Kinematics</h3>
+$$r^2=y^2+z^2$$
 
-<div style="font-size: 90%; line-height: 1.35;">
+$$c_2=\frac{r^2-L_1^2-L_2^2}{2L_1L_2}$$
 
-- $r^2=y^2+z^2$
-- $c_2=\dfrac{r^2-L_1^2-L_2^2}{2L_1L_2}$
-- $t_2=\cos^{-1}(c_2)$
-- $k_1=L_1+L_2c_2$
-- $k_2=L_2\sqrt{1-c_2^2}$
-- $\beta=\arctan\left(\dfrac{z}{y}\right)-\arctan\left(\dfrac{k_2}{k_1}\right)$
-- $\theta_1=\theta_2-t_2$
-- $abs_2=\beta+\theta_1$
+$$t_2=\cos^{-1}(c_2)$$
 
-</div>
+$$k_1=L_1+L_2c_2$$
+
+</td>
+</tr>
+
+<tr>
+<td width="50%" align="center" valign="middle">
+
+<img src="mechanism_2.png" width="88%">
+
+</td>
+<td width="50%" align="center" valign="middle">
+
+$$k_2=L_2\sqrt{1-c_2^2}$$
+
+$$\beta=\arctan\left(\frac{z}{y}\right)-\arctan\left(\frac{k_2}{k_1}\right)$$
+
+$$\theta_1=\theta_2-t_2$$
+
+$$abs_2=\beta+\theta_1$$
 
 </td>
 </tr>
