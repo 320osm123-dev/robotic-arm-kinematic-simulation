@@ -96,13 +96,8 @@ $$
 | `R` | Radius of the circular trajectory |
 | `α` | Circular trajectory parameter |
 | `L1, L2` | Effective link lengths |
-| `r` | Distance from the base joint to the target point |
-| `C` | Cosine-law term |
-| `t2` | Relative angle between the two effective links |
-| `k1, k2` | Auxiliary terms for inverse kinematics |
 | `β1` | Shoulder motor angle |
 | `β2` | Elbow motor angle |
-| `β3` | Auxiliary linkage angle |
 | `θ1 ~ θ6` | Internal linkage angles |
 | `C1 ~ C4` | Constant geometric angles |
 | `θEE` | End-effector orientation angle |
@@ -389,4 +384,4 @@ Parallelogram-Linkage-Robot-Arm/
 ├── demo.gif
 └── matlab/
     └── robot_kinematics_simulation.m
-```
+```여기서 Motor Angle Relationship에 베타 1이 빠진거 같은데?
