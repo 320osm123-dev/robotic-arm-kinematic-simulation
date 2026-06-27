@@ -10,7 +10,7 @@ The mechanism was designed for a harvesting robot arm, and the main objective of
 
 ## CAD Model
 
-<img src="cad_model.png" width="85%">
+<img src="cad_model.png" width="50%">
 
 The robotic arm was first modeled as a custom linkage mechanism.
 The MATLAB simulation simplifies this CAD model into a 2D linkage structure for kinematic analysis.
@@ -22,10 +22,10 @@ The MATLAB simulation simplifies this CAD model into a 2D linkage structure for 
 <table>
 <tr>
 <td width="50%">
-<img src="mechanism_1.png" width="100%">
+<img src="mechanism_1.png" width="60%">
 </td>
 <td width="50%">
-<img src="mechanism_2.png" width="100%">
+<img src="mechanism_2.png" width="60%">
 </td>
 </tr>
 </table>
