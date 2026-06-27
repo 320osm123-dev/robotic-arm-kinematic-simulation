@@ -60,10 +60,7 @@ k_2 = L_2\sqrt{1-c_2^2}
 $$
 
 $$
-\beta =
-\arctan\left(\frac{z}{y}\right)
--
-\arctan\left(\frac{k_2}{k_1}\right)
+\beta=\arctan\left(\frac{z}{y}\right)-\arctan\left(\frac{k_2}{k_1}\right)
 $$
 
 $$
