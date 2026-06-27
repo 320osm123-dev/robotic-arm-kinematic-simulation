@@ -10,13 +10,15 @@
 
 ---
 
+## Overview
+
 <table>
 <tr>
 <td width="42%" align="center" valign="top">
 
 <h3 align="center">CAD Model</h3>
 
-<img src="cad_model.png" width="58%">
+<img src="cad_model.png" width="40%">
 
 </td>
 <td width="58%" valign="top">
@@ -41,28 +43,23 @@ The mechanism was designed for a harvesting robot arm, and the main objective of
 
 ---
 
-<h2 align="center">2D Linkage Model & Inverse Kinematics</h2>
+## 2D Linkage Model
+
+<p align="center">
+<img src="mechanism_1.png" width="40%">
+&nbsp;&nbsp;&nbsp;
+<img src="mechanism_2.png" width="40%">
+</p>
+
+---
+
+## Kinematic Analysis and Simulation
 
 <table>
 <tr>
-<td width="50%" align="center" valign="top">
+<td width="42%" valign="top">
 
-<img src="mechanism_1.png" width="92%">
-
-</td>
-<td width="50%" align="center" valign="top">
-
-<img src="mechanism_2.png" width="92%">
-
-</td>
-</tr>
-</table>
-
-<br>
-
-<table>
-<tr>
-<td width="50%" align="center" valign="top">
+<h3 align="center">Inverse Kinematics</h3>
 
 $$r^2=y^2+z^2$$
 
@@ -71,9 +68,6 @@ $$c_2=\frac{r^2-L_1^2-L_2^2}{2L_1L_2}$$
 $$t_2=\cos^{-1}(c_2)$$
 
 $$k_1=L_1+L_2c_2$$
-
-</td>
-<td width="50%" align="center" valign="top">
 
 $$k_2=L_2\sqrt{1-c_2^2}$$
 
@@ -84,20 +78,19 @@ $$\theta_1=\theta_2-t_2$$
 $$abs_2=\beta+\theta_1$$
 
 </td>
+<td width="58%" align="center" valign="top">
+
+<h3 align="center">MATLAB Simulation</h3>
+
+<img src="demo.gif" width="70%">
+
+<br>
+
+The MATLAB animation verifies that the modeled robotic arm moves while maintaining the end-effector link parallel to the ground.
+
+</td>
 </tr>
 </table>
-
----
-
-<h2 align="center">MATLAB Simulation</h2>
-
-<p align="center">
-<img src="demo.gif" width="58%">
-</p>
-
-<p align="center">
-The MATLAB animation verifies that the modeled robotic arm moves while maintaining the end-effector link parallel to the ground.
-</p>
 
 ---
 
