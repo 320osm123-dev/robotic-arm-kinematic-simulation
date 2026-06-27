@@ -1,15 +1,5 @@
 # Kinematic Analysis of a Parallelogram Linkage Robot Arm
 
-<p align="center">
-  <img src="cad_model.png" width="700">
-</p>
-
-<p align="center">
-  <b>Coordinate-based control of a 2-DOF robot arm extended with a parallelogram linkage</b>
-</p>
-
----
-
 ## Abstract
 
 This project extends a conventional 2-DOF robot arm with a parallelogram linkage structure.  
