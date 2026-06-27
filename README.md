@@ -13,13 +13,17 @@
 
 ## Abstract
 
-This project extends a conventional 2-DOF robot arm with a parallelogram linkage structure.  
-The linkage allows the end-effector to maintain a constant orientation while following a circular trajectory in the y-z plane.
+This project extends a conventional 2-DOF robot arm with a parallelogram linkage structure.
+The linkage allows the end-effector to maintain a constant orientation while following a circular trajectory.
 
 The desired trajectory coordinates are converted into shoulder and elbow motor angles through kinematic analysis.
 
 $$
-(y_d(\alpha),z_d(\alpha)) \rightarrow (\beta_1(\alpha),\beta_2(\alpha))
+P_d(\theta) = (x_d(\theta), y_d(\theta))
+$$
+
+$$
+P_d(\theta) \rightarrow (\beta_1(\theta),\beta_2(\theta))
 $$
 
 The simulation verifies that the end-effector traces a circular path while maintaining a constant orientation.
@@ -34,13 +38,13 @@ $$
 
 This project consists of three parts.
 
-1. **Mechanical Design**  
+1. **Mechanical Design**
    Design of a 2-DOF robot arm extended with a parallelogram linkage.
 
-2. **Kinematic Analysis**  
+2. **Kinematic Analysis**
    Conversion of the target coordinate into shoulder and elbow motor angles.
 
-3. **Circular Trajectory Simulation**  
+3. **Circular Trajectory Simulation**
    MATLAB simulation to verify whether the end-effector can trace a circular trajectory while maintaining its orientation.
 
 ---
@@ -55,17 +59,17 @@ This project consists of three parts.
   <b>Fig. 1. CAD model of the robot arm</b>
 </p>
 
-The robot arm is based on a conventional 2-DOF planar robot arm.  
+The robot arm is based on a conventional 2-DOF planar robot arm.
 A parallelogram linkage is added to maintain the end-effector orientation during motion.
 
 ---
 
 ## Part 2. Kinematic Analysis
 
-The target position is defined in the y-z plane and converted into two motor angles.
+The target position is defined in the planar coordinate system and converted into two motor angles.
 
 $$
-(y,z) \rightarrow (\beta_1,\beta_2)
+(x,y) \rightarrow (\beta_1,\beta_2)
 $$
 
 <p align="center">
@@ -88,36 +92,36 @@ $$
 
 ### Variable Definition
 
-| Variable | Description |
-|---|---|
-| `y, z` | Target end-effector coordinate |
-| `yd, zd` | Desired circular trajectory coordinate |
-| `yc, zc` | Center of the circular trajectory |
-| `R` | Radius of the circular trajectory |
-| `α` | Circular trajectory parameter |
-| `L1, L2` | Effective link lengths |
-| `β1` | Shoulder motor angle |
-| `β2` | Elbow motor angle |
-| `θ1 ~ θ6` | Internal linkage angles |
-| `C1 ~ C4` | Constant geometric angles |
-| `θEE` | End-effector orientation angle |
+| Variable  | Description                            |
+| --------- | -------------------------------------- |
+| `x, y`    | Target end-effector coordinate         |
+| `xd, yd`  | Desired circular trajectory coordinate |
+| `xc, yc`  | Center of the circular trajectory      |
+| `R`       | Radius of the circular trajectory      |
+| `θ`       | Circular trajectory parameter          |
+| `L1, L2`  | Effective link lengths                 |
+| `β1`      | Shoulder motor angle                   |
+| `β2`      | Elbow motor angle                      |
+| `θ1 ~ θ6` | Internal linkage angles                |
+| `C1 ~ C4` | Constant geometric angles              |
+| `θEE`     | End-effector orientation angle         |
 
-All angles are expressed in radians.
+All angles are expressed in radians unless otherwise specified.
 
 ---
 
 ### Coordinate-to-Angle Conversion
 
 $$
-P(y,z)
+P(x,y)
 $$
 
 $$
-r^2 = y^2 + z^2
+r^2 = x^2 + y^2
 $$
 
 $$
-C = {y^2 + z^2 - L_1^2 - L_2^2 \over 2L_1L_2}
+C = {x^2 + y^2 - L_1^2 - L_2^2 \over 2L_1L_2}
 $$
 
 $$
@@ -133,11 +137,11 @@ k_2 = L_2\sqrt{1-C^2}
 $$
 
 $$
-\beta_1 = atan2(z,y) - atan2(k_2,k_1)
+\beta_1 = atan2(y,x) - atan2(k_2,k_1)
 $$
 
 $$
-\beta_1 = atan2(z,y) - atan2(L_2\sqrt{1-C^2},L_1+L_2C)
+\beta_1 = atan2(y,x) - atan2(L_2\sqrt{1-C^2},L_1+L_2C)
 $$
 
 ---
@@ -147,7 +151,7 @@ $$
 The shoulder motor angle is obtained from inverse kinematics.
 
 $$
-\beta_1 = atan2(z,y) - atan2(L_2\sqrt{1-C^2},L_1+L_2C)
+\beta_1 = atan2(y,x) - atan2(L_2\sqrt{1-C^2},L_1+L_2C)
 $$
 
 The elbow motor angle is determined by the closed-loop linkage relationship.
@@ -173,11 +177,11 @@ $$
 $$
 
 $$
-\beta_2 = atan2(z,y) - atan2(L_2\sqrt{1-C^2},L_1+L_2C) + C_4 - cos^{-1}(C)
+\beta_2 = atan2(y,x) - atan2(L_2\sqrt{1-C^2},L_1+L_2C) + C_4 - cos^{-1}(C)
 $$
 
 $$
-(y,z) \rightarrow (\beta_1,\beta_2)
+(x,y) \rightarrow (\beta_1,\beta_2)
 $$
 
 ---
@@ -243,7 +247,7 @@ $$
 ### Final Kinematic Result
 
 $$
-(y,z) \rightarrow (\beta_1,\beta_2)
+(x,y) \rightarrow (\beta_1,\beta_2)
 $$
 
 $$
@@ -262,39 +266,68 @@ $$
 
 ## Part 3. Circular Trajectory Simulation
 
-The MATLAB simulation verifies whether the end-effector can trace a circular trajectory in the y-z plane.
+The MATLAB simulation verifies whether the end-effector can trace a circular trajectory in the X-Y plane.
 
-The desired circular trajectory is defined as
-
-$$
-P_d(\alpha) = (y_d(\alpha),z_d(\alpha))
-$$
+The circular target points for P1 are generated as
 
 $$
-y_d(\alpha) = y_c + R cos(\alpha)
+P_d(\theta) = (x_d(\theta),y_d(\theta))
 $$
 
 $$
-z_d(\alpha) = z_c + R sin(\alpha)
+x_d(\theta) = x_c + R\cos(\theta)
 $$
 
-Each point on the circular trajectory is converted into motor angles using the derived kinematic equations.
-
 $$
-(y_d(\alpha),z_d(\alpha)) \rightarrow (\beta_1(\alpha),\beta_2(\alpha))
+y_d(\theta) = y_c + R\sin(\theta)
 $$
 
-The calculated motor angles are applied to the linkage model, and the end-effector traces the circular path while maintaining a constant orientation.
+where the circle center is
 
 $$
-\theta_{EE} = \pi - C_3
+(x_c,y_c) = (-300,0)\ \text{mm}
 $$
+
+and the radius is
+
+$$
+R = 50\ \text{mm}
+$$
+
+In the MATLAB implementation, `theta` is expressed in degrees, so `cosd(theta)` and `sind(theta)` are used.
+
+For each circular target point, P1 is moved incrementally toward the target position.
+At each step, the simulation searches for the proper `beta1` and `t2` values using an optimization-based cost function.
+
+After the proper `beta1` and `t2` values are found, all linkage points from P1 to P10 are recalculated and the robot arm is redrawn.
+
+---
+
+### Simulation Flowchart
+
+The simulation follows the procedure shown below.
+First, the fixed linkage parameters are defined and the circular target points for P1 are generated.
+
+Then, for each target point, P1 is moved gradually toward the target position.
+At every incremental movement, the simulation searches for the proper `beta1` and `t2` values that satisfy the linkage geometry.
+
+After that, all linkage points from P1 to P10 are recalculated and the robot arm is redrawn.
+The process is repeated until P1 reaches the current target point.
+Then, the simulation moves to the next point on the circle.
+
+<p align="center">
+  <img src="simulation_flowchart.png" width="420">
+</p>
+
+<p align="center">
+  <b>Fig. 4. Simulation flowchart for circular trajectory tracking</b>
+</p>
 
 ---
 
 ### Simulation Structure
 
-The MATLAB simulation was constructed using the linkage points and geometric constraints of the mechanism.  
+The MATLAB simulation was constructed using the linkage points and geometric constraints of the mechanism.
 The numbered points represent the joints used in the simulation model.
 
 <p align="center">
@@ -302,7 +335,7 @@ The numbered points represent the joints used in the simulation model.
 </p>
 
 <p align="center">
-  <b>Fig. 4. Simulation linkage structure in the front-left configuration</b>
+  <b>Fig. 5. Simulation linkage structure in the front-left configuration</b>
 </p>
 
 <p align="center">
@@ -310,7 +343,7 @@ The numbered points represent the joints used in the simulation model.
 </p>
 
 <p align="center">
-  <b>Fig. 5. Simulation linkage structure in the front-right configuration</b>
+  <b>Fig. 6. Simulation linkage structure in the front-right configuration</b>
 </p>
 
 ---
@@ -322,28 +355,26 @@ The numbered points represent the joints used in the simulation model.
 </p>
 
 <p align="center">
-  <b>Fig. 6. End-effector circular trajectory simulation</b>
+  <b>Fig. 7. End-effector circular trajectory simulation</b>
 </p>
 
-The simulation shows that the end-effector follows the circular trajectory generated in the y-z plane.
+The simulation shows that P1 follows the generated circular trajectory.
 
 ---
 
 ## Result
 
-The target circular trajectory is generated in the y-z plane.
+The target circular trajectory is generated in the X-Y plane.
 
 $$
-P_d(\alpha) = (y_d(\alpha),z_d(\alpha))
+P_d(\theta) = (x_d(\theta),y_d(\theta))
 $$
 
-Each point of the trajectory is converted into shoulder and elbow motor angles.
+Each point of the trajectory is used as a target position for P1.
 
-$$
-(y_d(\alpha),z_d(\alpha)) \rightarrow (\beta_1(\alpha),\beta_2(\alpha))
-$$
+For each target point, the simulation searches for the proper `beta1` and `t2` values that satisfy the linkage geometry.
 
-The simulation confirms that the end-effector traces a circular path.
+The simulation confirms that P1 traces a circular path.
 
 During the circular motion, the parallelogram linkage keeps the end-effector orientation constant.
 
@@ -357,13 +388,13 @@ $$
 
 This project demonstrates that a conventional 2-DOF robot arm can be extended with a parallelogram linkage to maintain a constant end-effector orientation.
 
-The derived kinematic equations convert the desired circular trajectory coordinates into shoulder and elbow motor angles.
+The circular trajectory coordinates are generated and used as target positions for P1.
 
 $$
-(y_d(\alpha),z_d(\alpha)) \rightarrow (\beta_1(\alpha),\beta_2(\alpha))
+P_d(\theta) = (x_d(\theta),y_d(\theta))
 $$
 
-The MATLAB simulation verifies that the end-effector can trace a circular path while maintaining a constant orientation.
+The MATLAB simulation verifies that the robot arm can trace a circular path while maintaining a constant end-effector orientation.
 
 $$
 \theta_{EE} = \pi - C_3
