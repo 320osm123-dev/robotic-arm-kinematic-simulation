@@ -1,6 +1,8 @@
 # Ground-Parallel End-Effector Robotic Arm Simulation
 
-> MATLAB kinematic simulation of a custom planar robotic arm that maintains a ground-parallel end-effector.
+**MATLAB Kinematic Simulation of a Custom 2D Linkage Mechanism**
+
+This project presents a MATLAB-based 2D kinematic simulation of a custom planar robotic linkage mechanism.
 
 ---
 
@@ -19,12 +21,13 @@
 
 ### Key Points
 
-- Ground-parallel end-effector
-- Custom linkage mechanism
-- CAD-based design
-- Inverse kinematics
-- MATLAB animation
-- Designed for harvesting robots
+- End-effector is defined as **Link 1–2**
+- Maintains a ground-parallel end-effector posture
+- Custom linkage mechanism modeled in CAD
+- 2D linkage simplification
+- Inverse-kinematics-based posture calculation
+- MATLAB kinematic simulation
+- Designed for a harvesting robot arm
 
 </td>
 
@@ -36,7 +39,7 @@
 <table>
 <tr>
 
-<td width="50%" align="center">
+<td width="50%" align="center" valign="top">
 
 <img src="mechanism_1.png" width="48%">
 <img src="mechanism_2.png" width="48%">
@@ -48,11 +51,23 @@
 ### Inverse Kinematics
 
 $$
-r^2=y^2+z^2
+r^2 = y^2 + z^2
 $$
 
 $$
-c_2=\frac{r^2-L_1^2-L_2^2}{2L_1L_2}
+c_2 = \frac{r^2 - L_1^2 - L_2^2}{2L_1L_2}
+$$
+
+$$
+t_2 = \cos^{-1}(c_2)
+$$
+
+$$
+k_1 = L_1 + L_2c_2
+$$
+
+$$
+k_2 = L_2\sqrt{1-c_2^2}
 $$
 
 $$
@@ -60,7 +75,11 @@ $$
 $$
 
 $$
-\theta_1=\theta_2-t_2
+\theta_1 = \theta_2 - t_2
+$$
+
+$$
+abs_2 = \beta + \theta_1
 $$
 
 </td>
@@ -73,14 +92,15 @@ $$
 ## MATLAB Simulation
 
 <p align="center">
-<img src="demo.gif" width="65%">
+<img src="demo.gif" width="55%">
 </p>
 
-The simulation verifies that the end-effector remains parallel to the ground throughout the motion.
+The MATLAB animation verifies that the modeled robotic arm moves while maintaining the end-effector link parallel to the ground.
 
 ---
 
 ## Files
 
-- `robotic.m` — MATLAB simulation
-- `demo.gif` — Simulation animation
+- `robotic.m` : Main MATLAB simulation code
+- `demo.gif` : MATLAB simulation
+- `demo.mp4` : Original video
