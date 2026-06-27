@@ -23,9 +23,11 @@ The MATLAB simulation simplifies this CAD model into a 2D linkage structure for 
 <table>
 <tr>
 <td width="50%">
+<p align="center">
 <img src="mechanism_1.png" width="60%">
 </td>
 <td width="50%">
+<p align="center">
 <img src="mechanism_2.png" width="60%">
 </td>
 </tr>
