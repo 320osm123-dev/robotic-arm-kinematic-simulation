@@ -1,20 +1,31 @@
 # Kinematic Analysis of a Parallelogram Linkage Robot Arm
 
+<p align="center">
+  <img src="cad_model.png" width="200">
+  <img src="demo.gif" width="200">
+</p>
+
+<p align="center">
+  <b>Design, kinematic analysis, and circular trajectory simulation of a parallelogram linkage robot arm</b>
+</p>
+
+---
+
 ## Abstract
 
 This project extends a conventional 2-DOF robot arm with a parallelogram linkage structure.  
-The linkage allows the end-effector to maintain a constant orientation while the target coordinate is converted into motor angles through kinematic analysis.
+The linkage allows the end-effector to maintain a constant orientation while following a circular trajectory in the y-z plane.
+
+The desired trajectory coordinates are converted into motor angles through kinematic analysis.
 
 $$
-(y,z) \rightarrow (\beta_1,\beta_2)
+(y_d(\alpha),z_d(\alpha)) \rightarrow (\beta_1(\alpha),\beta_2(\alpha))
 $$
 
-$$
-\theta_6 = const
-$$
+The simulation verifies that the end-effector traces a circular path while maintaining a constant orientation.
 
 $$
-\phi_{EE} = const
+\theta_{EE} = const
 $$
 
 ---
@@ -189,16 +200,18 @@ $$
 \theta_6 = C_3 = const
 $$
 
+The end-effector orientation angle is defined as
+
 $$
-\phi_{EE} = \pi - \theta_6
+\theta_{EE} = \pi - \theta_6
 $$
 
 $$
-\phi_{EE} = \pi - C_3
+\theta_{EE} = \pi - C_3
 $$
 
 $$
-\phi_{EE} = const
+\theta_{EE} = const
 $$
 
 ---
@@ -214,7 +227,7 @@ $$
 $$
 
 $$
-\phi_{EE} = const
+\theta_{EE} = const
 $$
 
 ---
@@ -246,7 +259,7 @@ $$
 The calculated motor angles are applied to the linkage model, and the end-effector traces the circular path while maintaining a constant orientation.
 
 $$
-\phi_{EE} = const
+\theta_{EE} = const
 $$
 
 ---
@@ -277,7 +290,7 @@ The numbered points represent the joints used in the simulation model.
 ### Simulation Result
 
 <p align="center">
-  <img src="demo.gif" width="300">
+  <img src="demo.gif" width="200">
 </p>
 
 <p align="center">
@@ -307,7 +320,7 @@ The simulation confirms that the end-effector traces a circular path.
 During the circular motion, the parallelogram linkage keeps the end-effector orientation constant.
 
 $$
-\phi_{EE} = const
+\theta_{EE} = const
 $$
 
 ---
@@ -325,7 +338,7 @@ $$
 The MATLAB simulation verifies that the end-effector can trace a circular path while maintaining a constant orientation.
 
 $$
-\phi_{EE} = const
+\theta_{EE} = const
 $$
 
 ---
@@ -335,13 +348,12 @@ $$
 ```text
 Parallelogram-Linkage-Robot-Arm/
 ├── README.md
-├── assets/
-│   ├── cad_model.png
-│   ├── front_left_angle_definition.png
-│   ├── front_right_angle_definition.png
-│   ├── simulation_structure_left.png
-│   ├── simulation_structure_right.png
-│   └── demo.gif
+├── cad_model.png
+├── front_left_angle_definition.png
+├── front_right_angle_definition.png
+├── simulation_structure_left.png
+├── simulation_structure_right.png
+├── demo.gif
 └── matlab/
     └── robot_kinematics_simulation.m
 ```
