@@ -6,26 +6,100 @@ This project presents a MATLAB-based 2D kinematic simulation of a planar robotic
 
 The simulation visualizes the motion of a multi-link robotic arm while the end-effector point follows a circular trajectory.
 
-## Features
+move the end-effector point along a target circular path.  
+This project was developed to analyze robotic arm kinematics and visualize linkage motion for a harvesting robot mechanism.
+# Ground-Parallel End-Effector Robotic Arm Simulation
 
-- 2D robotic linkage mechanism simulation
-- Circular end-effector trajectory tracking
-- Forward kinematics calculation
-- Numerical optimization using `fminsearch`
-- Real-time MATLAB animation
+**MATLAB Kinematic Simulation of a Custom 2D Linkage Mechanism**
+
+This project simulates a custom robotic arm mechanism in MATLAB.  
+The end-effector is defined as **Link 1–2**, and the goal is to verify that this link remains parallel to the ground during motion.
+
+---
+
+<table>
+<tr>
+<td width="45%" valign="top">
+
+## Principle
+
+The posture is calculated based on inverse kinematics.
+
+$$
+r_2 = y^2 + z^2
+$$
+
+$$
+c_2 = \frac{r_2 - L_1^2 - L_2^2}{2L_1L_2}
+$$
+
+$$
+t_2 = \cos^{-1}(c_2)
+$$
+
+$$
+k_1 = L_1 + L_2c_2
+$$
+
+$$
+k_2 = L_2\sqrt{1-c_2^2}
+$$
+
+$$
+\beta =
+\tan^{-1}\left(\frac{z}{y}\right)
+-
+\tan^{-1}\left(\frac{k_2}{k_1}\right)
+$$
+
+$$
+\theta_1 = \theta_2 - t_2
+$$
+
+$$
+abs_2 = (\pi - \beta) + \theta_1
+$$
+
+</td>
+<td width="55%" valign="top">
+
+## MATLAB Simulation
+
+<img src="assets/demo.gif" width="100%">
+
+The MATLAB animation verifies that the modeled robotic arm moves while maintaining the end-effector link parallel to the ground.
+
+</td>
+</tr>
+</table>
+
+---
+
+## Modeled Mechanism
+
+<table>
+<tr>
+<td width="50%">
+<img src="assets/mechanism_1.png" width="100%">
+</td>
+<td width="50%">
+<img src="assets/mechanism_2.png" width="100%">
+</td>
+</tr>
+</table>
+
+---
+
+## Key Points
+
+- **End-effector = Link 1–2**
+- Ground-parallel end-effector posture during motion
+- Custom 2D robotic arm linkage mechanism
+- IK-based posture calculation
+- MATLAB kinematic simulation and animation
+
+---
 
 ## File
 
 - `robotic.m` : Main MATLAB simulation code
-
-## How to Run
-
-1. Open MATLAB.
-2. Open `robotic.m`.
-3. Run the script.
-4. The robotic linkage animation and circular trajectory will be displayed.
-
-## Description
-
-The simulation defines a planar linkage structure and updates the joint variables to move the end-effector point along a target circular path.  
-This project was developed to analyze robotic arm kinematics and visualize linkage motion for a harvesting robot mechanism.
