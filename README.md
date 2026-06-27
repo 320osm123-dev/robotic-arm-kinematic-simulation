@@ -30,6 +30,34 @@ $$
 
 ---
 
+## Variable Definition
+
+| Variable | Description |
+|---|---|
+| `y, z` | Target end-effector coordinate in the y-z plane |
+| `P(y,z)` | Target point of the end-effector |
+| `Pd(α)` | Desired point on the circular trajectory |
+| `yd(α), zd(α)` | Desired y and z coordinates of the circular trajectory |
+| `yc, zc` | Center coordinate of the circular trajectory |
+| `R` | Radius of the circular trajectory |
+| `α` | Trajectory parameter angle |
+| `L1, L2` | Effective link lengths of the equivalent 2-link model |
+| `r` | Distance from the base joint to the target point |
+| `C` | Auxiliary variable obtained from the cosine law |
+| `t2` | Relative angle between the two effective links |
+| `k1, k2` | Auxiliary terms used in inverse kinematics |
+| `β1` | First motor angle |
+| `β2` | Second motor angle |
+| `β3` | Auxiliary linkage angle |
+| `θ1 ~ θ6` | Internal geometric angles of the linkage mechanism |
+| `C1 ~ C4` | Constant angles determined by the linkage geometry |
+| `θEE` | End-effector orientation angle |
+| `const` | Constant value during motion |
+
+All angles are expressed in radians in the derivation.
+
+---
+
 ## Project Overview
 
 This project consists of three parts.
@@ -243,11 +271,11 @@ P_d(\alpha) = (y_d(\alpha),z_d(\alpha))
 $$
 
 $$
-y_d(\alpha) = y_c + Rcos(\alpha)
+y_d(\alpha) = y_c + R cos(\alpha)
 $$
 
 $$
-z_d(\alpha) = z_c + Rsin(\alpha)
+z_d(\alpha) = z_c + R sin(\alpha)
 $$
 
 Each point on the circular trajectory is converted into motor angles using the derived kinematic equations.
@@ -290,7 +318,7 @@ The numbered points represent the joints used in the simulation model.
 ### Simulation Result
 
 <p align="center">
-  <img src="demo.gif" width="300">
+  <img src="demo.gif" width="200">
 </p>
 
 <p align="center">
