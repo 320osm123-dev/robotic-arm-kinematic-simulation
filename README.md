@@ -96,8 +96,13 @@ $$
 | `R` | Radius of the circular trajectory |
 | `α` | Circular trajectory parameter |
 | `L1, L2` | Effective link lengths |
+| `r` | Distance from the base joint to the target point |
+| `C` | Cosine-law term |
+| `t2` | Relative angle between the two effective links |
+| `k1, k2` | Auxiliary terms for inverse kinematics |
 | `β1` | Shoulder motor angle |
 | `β2` | Elbow motor angle |
+| `β3` | Auxiliary linkage angle |
 | `θ1 ~ θ6` | Internal linkage angles |
 | `C1 ~ C4` | Constant geometric angles |
 | `θEE` | End-effector orientation angle |
@@ -143,6 +148,14 @@ $$
 ---
 
 ### Motor Angle Relationship
+
+The shoulder motor angle is obtained from inverse kinematics.
+
+$$
+\beta_1 = atan2(z,y) - atan2(L_2\sqrt{1-C^2},L_1+L_2C)
+$$
+
+The elbow motor angle is determined by the closed-loop linkage relationship.
 
 $$
 \theta_2 = C_4
