@@ -17,6 +17,7 @@
 <td width="42%" align="center" valign="top">
 
 <h3 align="center">CAD Model</h3>
+<br>
 
 <img src="cad_model.png" width="40%">
 
@@ -24,6 +25,7 @@
 <td width="58%" valign="top">
 
 <h3 align="center">Key Features</h3>
+<br>
 
 - End-effector is defined as **Link 1–2**
 - Maintains a ground-parallel end-effector posture during motion
@@ -47,7 +49,7 @@ The mechanism was designed for a harvesting robot arm, and the main objective of
 
 <p align="center">
 <img src="mechanism_1.png" width="40%">
-&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="mechanism_2.png" width="40%">
 </p>
 
@@ -60,6 +62,7 @@ The mechanism was designed for a harvesting robot arm, and the main objective of
 <td width="42%" align="center" valign="top">
 
 <h3 align="center">Inverse Kinematics</h3>
+<br>
 
 <div align="center">
 
@@ -85,8 +88,11 @@ $$abs_2=\beta+\theta_1$$
 <td width="58%" align="center" valign="top">
 
 <h3 align="center">MATLAB Simulation</h3>
+<br>
 
-<img src="demo.gif" width="70%">
+<img src="demo.gif" width="65%">
+
+<br><br>
 
 <p align="center">
 The MATLAB animation verifies that the modeled robotic arm moves while maintaining the end-effector link parallel to the ground.
