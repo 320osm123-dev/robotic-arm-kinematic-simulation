@@ -82,7 +82,7 @@ $$
 $$
 
 $$
-abs_2=\beta+\theta_1
+\beta_2=\beta_1+\theta_1
 $$
 
 ### Variable Definitions
