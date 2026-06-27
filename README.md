@@ -61,9 +61,9 @@ $$
 
 $$
 \beta =
-\tan^{-1}\left(\frac{z}{y}\right)
+\arctan\left(\frac{z}{y}\right)
 -
-\tan^{-1}\left(\frac{k_2}{k_1}\right)
+\arctan\left(\frac{k_2}{k_1}\right)
 $$
 
 $$
