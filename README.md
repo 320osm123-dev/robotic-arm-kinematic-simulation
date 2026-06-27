@@ -10,7 +10,7 @@
 
 ---
 
-## Overview
+<h2 align="center">Overview</h2>
 
 <table>
 <tr>
@@ -43,7 +43,7 @@ The mechanism was designed for a harvesting robot arm, and the main objective of
 
 ---
 
-## 2D Linkage Model
+<h2 align="center">2D Linkage Model</h2>
 
 <p align="center">
 <img src="mechanism_1.png" width="40%">
@@ -53,13 +53,15 @@ The mechanism was designed for a harvesting robot arm, and the main objective of
 
 ---
 
-## Kinematic Analysis and Simulation
+<h2 align="center">Kinematic Analysis and Simulation</h2>
 
 <table>
 <tr>
-<td width="42%" valign="top">
+<td width="42%" align="center" valign="top">
 
 <h3 align="center">Inverse Kinematics</h3>
+
+<div align="center">
 
 $$r^2=y^2+z^2$$
 
@@ -77,6 +79,8 @@ $$\theta_1=\theta_2-t_2$$
 
 $$abs_2=\beta+\theta_1$$
 
+</div>
+
 </td>
 <td width="58%" align="center" valign="top">
 
@@ -84,9 +88,9 @@ $$abs_2=\beta+\theta_1$$
 
 <img src="demo.gif" width="70%">
 
-<br>
-
+<p align="center">
 The MATLAB animation verifies that the modeled robotic arm moves while maintaining the end-effector link parallel to the ground.
+</p>
 
 </td>
 </tr>
