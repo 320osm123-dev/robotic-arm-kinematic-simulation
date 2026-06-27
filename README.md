@@ -316,7 +316,7 @@ The process is repeated until P1 reaches the current target point.
 Then, the simulation moves to the next point on the circle.
 
 <p align="center">
-  <img src="simulation_flowchart.png" width="420">
+  <img src="simulation_flowchart.png" width="200">
 </p>
 
 <p align="center">
