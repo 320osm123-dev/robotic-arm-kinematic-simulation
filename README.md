@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="cad_model.png" width="200">
-  <img src="demo.gif" width="200">
+  <img src="demo.gif" width="300">
 </p>
 
 <p align="center">
@@ -318,7 +318,7 @@ The numbered points represent the joints used in the simulation model.
 ### Simulation Result
 
 <p align="center">
-  <img src="demo.gif" width="200">
+  <img src="demo.gif" width="300">
 </p>
 
 <p align="center">
