@@ -58,56 +58,54 @@ This project consists of three parts.
   <b>Fig. 1. CAD model of the robot arm</b>
 </p>
 
-The robot arm is based on a 2-DOF planar arm.  
+The robot arm is based on a conventional 2-DOF planar robot arm.  
 A parallelogram linkage is added so that the end-effector can maintain its orientation during motion.
 
 ---
 
 ## Part 2. Kinematic Analysis
 
-### Mechanism Structure
+The kinematic analysis is performed to convert the target coordinate in the y-z plane into the motor angles beta1 and beta2.
+
+$$
+(y,z) \rightarrow (\beta_1,\beta_2)
+$$
+
+The angle definitions used for the kinematic derivation are shown below.
 
 <p align="center">
-  <img src="assets/mechanism_geometry.png" width="650">
+  <img src="assets/front_left_angle_definition.png" width="620">
 </p>
 
 <p align="center">
-  <b>Fig. 2. Parallelogram linkage structure</b>
-</p>
-
-For kinematic analysis, the mechanism is represented using an equivalent two-link model.
-
-<p align="center">
-  <img src="assets/two_link_model.png" width="600">
+  <b>Fig. 2. Angle definition in the front-left configuration</b>
 </p>
 
 <p align="center">
-  <b>Fig. 3. Equivalent two-link model</b>
+  <img src="assets/front_right_angle_definition.png" width="620">
 </p>
 
-The target end-effector position is defined in the y-z plane.
-
-$$
-P(y,z)
-$$
-
-The goal is to calculate the two motor angles.
-
-$$
-\beta_1,\ \beta_2
-$$
+<p align="center">
+  <b>Fig. 3. Angle definition in the front-right configuration</b>
+</p>
 
 ---
 
 ### Inverse Kinematics
 
-The distance from the base joint to the target point is defined as follows.
+The target end-effector position is defined as
+
+$$
+P(y,z)
+$$
+
+The distance from the base joint to the target point is
 
 $$
 r^2 = y^2 + z^2
 $$
 
-Using the cosine law, the relative configuration of the two effective links can be expressed as
+Using the cosine law, the relative configuration of the two effective links is expressed as
 
 $$
 C = {y^2 + z^2 - L_1^2 - L_2^2 \over 2L_1L_2}
@@ -129,13 +127,13 @@ $$
 k_2 = L_2\sqrt{1-C^2}
 $$
 
-Therefore, the first motor angle is obtained from inverse kinematics.
+Therefore, the first motor angle is obtained as
 
 $$
 \beta_1 = atan2(z,y) - atan2(k_2,k_1)
 $$
 
-By substituting the auxiliary terms, the first motor angle becomes
+Substituting k1 and k2 gives
 
 $$
 \beta_1 = atan2(z,y) - atan2(L_2\sqrt{1-C^2},L_1+L_2C)
@@ -143,17 +141,9 @@ $$
 
 ---
 
-### Closed-loop Constraint for the Second Motor Angle
+### Closed-loop Constraint for Motor Angle beta2
 
-<p align="center">
-  <img src="assets/lower_angle_definition.png" width="620">
-</p>
-
-<p align="center">
-  <b>Fig. 4. Lower linkage angle definition</b>
-</p>
-
-From the lower linkage geometry, the angle theta2 is constant.
+From the front-left configuration, the angle theta2 is constant.
 
 $$
 \theta_2 = C_4
@@ -177,7 +167,7 @@ $$
 \beta_2 = \beta_1 + \theta_1
 $$
 
-Thus, the second motor angle can be written as
+Thus,
 
 $$
 \beta_2 = \beta_1 + C_4 - t_2
@@ -189,7 +179,7 @@ $$
 \beta_2 = atan2(z,y) - atan2(L_2\sqrt{1-C^2},L_1+L_2C) + C_4 - cos^{-1}(C)
 $$
 
-As a result, the target coordinate can be converted into two motor angles.
+Therefore, the target coordinate can be converted into the two motor angles.
 
 $$
 (y,z) \rightarrow (\beta_1,\beta_2)
@@ -199,15 +189,7 @@ $$
 
 ### End-effector Orientation Constraint
 
-<p align="center">
-  <img src="assets/upper_angle_definition.png" width="620">
-</p>
-
-<p align="center">
-  <b>Fig. 5. Upper linkage angle definition</b>
-</p>
-
-From the upper linkage geometry, theta4 is constant.
+From the front-right configuration, the angle theta4 is constant.
 
 $$
 \theta_4 = C_1
@@ -255,11 +237,13 @@ $$
 \theta_6 = \beta_1 - \theta_3 - \theta_4 + \pi
 $$
 
-Using the relations
+Using
 
 $$
 \beta_1 = \theta_3 + C_2 - \pi
 $$
+
+and
 
 $$
 \theta_4 = C_1
@@ -305,15 +289,34 @@ $$
 
 ## Part 3. Simulation Verification
 
+The MATLAB simulation was constructed using the linkage points and geometric constraints of the mechanism.  
+The numbered points represent the joints used in the simulation model.
+
+<p align="center">
+  <img src="assets/simulation_structure_left.png" width="620">
+</p>
+
+<p align="center">
+  <b>Fig. 4. Simulation linkage structure in the front-left configuration</b>
+</p>
+
+<p align="center">
+  <img src="assets/simulation_structure_right.png" width="620">
+</p>
+
+<p align="center">
+  <b>Fig. 5. Simulation linkage structure in the front-right configuration</b>
+</p>
+
+The simulation verifies that the target coordinate can be converted into motor angles while maintaining a constant end-effector orientation.
+
 <p align="center">
   <img src="assets/demo.gif" width="700">
 </p>
 
 <p align="center">
-  <b>Fig. 6. MATLAB simulation of the robot arm motion</b>
+  <b>Fig. 6. MATLAB simulation result</b>
 </p>
-
-The simulation verifies that the target coordinate can be converted into motor angles while maintaining a constant end-effector orientation.
 
 ---
 
@@ -376,10 +379,11 @@ Parallelogram-Linkage-Robot-Arm/
 ├── README.md
 ├── assets/
 │   ├── cad_model.png
-│   ├── mechanism_geometry.png
-│   ├── two_link_model.png
-│   ├── lower_angle_definition.png
-│   ├── upper_angle_definition.png
+│   ├── front_left_angle_definition.png
+│   ├── front_right_angle_definition.png
+│   ├── simulation_structure_left.png
+│   ├── simulation_structure_right.png
 │   └── demo.gif
 └── matlab/
     └── robot_kinematics_simulation.m
+```
