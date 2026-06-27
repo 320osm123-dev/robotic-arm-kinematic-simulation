@@ -1,22 +1,29 @@
-<h1 align="center">Ground-Parallel End-Effector Robotic Arm Simulation</h1>
+<div align="center">
 
-<p align="center">
-  <b>MATLAB Kinematic Simulation of a Custom 2D Linkage Mechanism</b><br>
-  A harvesting robot arm mechanism designed to keep the end-effector link parallel to the ground.
-</p>
+# Ground-Parallel End-Effector Robotic Arm Simulation
+
+**MATLAB Kinematic Simulation of a Custom 2D Linkage Mechanism**
+
+*Ground-parallel end-effector mechanism for a harvesting robot arm.*
+
+</div>
 
 ---
 
 <table>
 <tr>
+
 <td width="45%" align="center" valign="top">
 
-<img src="cad_model.png" width="55%">
+<h3>CAD Model</h3>
+
+<img src="cad_model.png" width="52%">
 
 </td>
+
 <td width="55%" valign="top">
 
-### Key Points
+<h3>Key Features</h3>
 
 - End-effector is defined as **Link 1–2**
 - Maintains a ground-parallel end-effector posture during motion
@@ -27,37 +34,46 @@
 - Designed for a harvesting robot arm mechanism
 
 </td>
+
 </tr>
 </table>
+
+<p align="center">
+The mechanism was designed for a harvesting robot arm, and the main objective of this simulation is to verify whether the end-effector link remains parallel to the ground during motion.
+</p>
 
 ---
 
 <table>
 <tr>
+
 <td width="58%" align="center" valign="top">
 
-### 2D Linkage Model
+<h3>2D Linkage Model</h3>
 
-<img src="mechanism_1.png" width="48%">
-<img src="mechanism_2.png" width="48%">
+<img src="mechanism_1.png" width="46%">
+&nbsp;
+<img src="mechanism_2.png" width="46%">
 
 </td>
+
 <td width="42%" valign="top">
 
-### Principle
+<h3>Inverse Kinematics</h3>
 
 The posture of the robotic arm is calculated using inverse kinematics.
 
-- $r^2 = y^2 + z^2$
-- $c_2 = \dfrac{r^2 - L_1^2 - L_2^2}{2L_1L_2}$
-- $t_2 = \cos^{-1}(c_2)$
-- $k_1 = L_1 + L_2c_2$
-- $k_2 = L_2\sqrt{1-c_2^2}$
+- $r^2=y^2+z^2$
+- $c_2=\dfrac{r^2-L_1^2-L_2^2}{2L_1L_2}$
+- $t_2=\cos^{-1}(c_2)$
+- $k_1=L_1+L_2c_2$
+- $k_2=L_2\sqrt{1-c_2^2}$
 - $\beta=\arctan\left(\dfrac{z}{y}\right)-\arctan\left(\dfrac{k_2}{k_1}\right)$
-- $\theta_1 = \theta_2 - t_2$
-- $abs_2 = \beta + \theta_1$
+- $\theta_1=\theta_2-t_2$
+- $abs_2=\beta+\theta_1$
 
 </td>
+
 </tr>
 </table>
 
@@ -66,7 +82,7 @@ The posture of the robotic arm is calculated using inverse kinematics.
 <h2 align="center">MATLAB Simulation</h2>
 
 <p align="center">
-  <img src="demo.gif" width="60%">
+<img src="demo.gif" width="58%">
 </p>
 
 <p align="center">
