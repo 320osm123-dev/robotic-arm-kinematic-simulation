@@ -368,20 +368,3 @@ The MATLAB simulation verifies that the end-effector can trace a circular path w
 $$
 \theta_{EE} = \pi - C_3
 $$
-
----
-
-## File Structure
-
-```text
-Parallelogram-Linkage-Robot-Arm/
-├── README.md
-├── cad_model.png
-├── front_left_angle_definition.png
-├── front_right_angle_definition.png
-├── simulation_structure_left.png
-├── simulation_structure_right.png
-├── demo.gif
-└── matlab/
-    └── robot_kinematics_simulation.m
-```여기서 Motor Angle Relationship에 베타 1이 빠진거 같은데?
