@@ -1,12 +1,13 @@
 # Ground-Parallel End-Effector Robotic Arm Simulation
 
-> MATLAB simulation of a custom planar robotic arm that maintains a ground-parallel end-effector using inverse kinematics.
+> MATLAB kinematic simulation of a custom planar robotic arm that maintains a ground-parallel end-effector.
 
 ---
 
 <table>
 <tr>
-<td align="center" width="50%">
+
+<td width="50%" align="center">
 
 ### CAD Model
 
@@ -14,73 +15,52 @@
 
 </td>
 
-<td align="center" width="50%">
+<td width="50%" valign="top">
 
-### MATLAB Simulation
-
-<img src="demo.gif" width="70%">
-
-</td>
-</tr>
-</table>
-
----
-
-<table>
-<tr>
-
-<td align="center" width="50%">
-
-### Linkage Model
-
-<img src="mechanism_1.png" width="85%">
-
-</td>
-
-<td align="center" width="50%">
-
-### Motion
-
-<img src="mechanism_2.png" width="85%">
-
-</td>
-
-</tr>
-</table>
-
----
-
-<table>
-<tr>
-
-<td valign="top" width="50%">
-
-## Key Features
+### Key Points
 
 - Ground-parallel end-effector
 - Custom linkage mechanism
 - CAD-based design
 - Inverse kinematics
 - MATLAB animation
+- Designed for harvesting robots
 
 </td>
 
-<td valign="top" width="50%">
+</tr>
+</table>
 
-## Inverse Kinematics
+---
 
-$$r^2=y^2+z^2$$
+<table>
+<tr>
+
+<td width="50%" align="center">
+
+<img src="mechanism_1.png" width="48%">
+<img src="mechanism_2.png" width="48%">
+
+</td>
+
+<td width="50%" valign="top">
+
+### Inverse Kinematics
+
+$$
+r^2=y^2+z^2
+$$
 
 $$
 c_2=\frac{r^2-L_1^2-L_2^2}{2L_1L_2}
 $$
 
 $$
-t_2=\cos^{-1}(c_2)
+\beta=\arctan\left(\frac{z}{y}\right)-\arctan\left(\frac{k_2}{k_1}\right)
 $$
 
 $$
-\beta=\arctan\left(\frac{z}{y}\right)-\arctan\left(\frac{k_2}{k_1}\right)
+\theta_1=\theta_2-t_2
 $$
 
 </td>
@@ -90,7 +70,17 @@ $$
 
 ---
 
+## MATLAB Simulation
+
+<p align="center">
+<img src="demo.gif" width="65%">
+</p>
+
+The simulation verifies that the end-effector remains parallel to the ground throughout the motion.
+
+---
+
 ## Files
 
-- `robotic.m`
-- `demo.gif`
+- `robotic.m` — MATLAB simulation
+- `demo.gif` — Simulation animation
