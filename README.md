@@ -37,7 +37,7 @@ This project consists of three parts.
 ## Part 1. Mechanical Design
 
 <p align="center">
-  <img src="cad_model.png" width="650">
+  <img src="cad_model.png" width="300">
 </p>
 
 <p align="center">
