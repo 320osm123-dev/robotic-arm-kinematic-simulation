@@ -19,7 +19,7 @@
 <h3 align="center">CAD Model</h3>
 <br>
 
-<img src="cad_model.png" width="40%">
+<img src="cad_model.png" width="50%">
 
 </td>
 <td width="58%" valign="top">
@@ -48,9 +48,9 @@ The mechanism was designed for a harvesting robot arm, and the main objective of
 <h2 align="center">2D Linkage Model</h2>
 
 <p align="center">
-<img src="mechanism_1.png" width="40%">
+<img src="mechanism_1.png" width="30%">
 &nbsp;&nbsp;&nbsp;&nbsp;
-<img src="mechanism_2.png" width="40%">
+<img src="mechanism_2.png" width="30%">
 </p>
 
 ---
