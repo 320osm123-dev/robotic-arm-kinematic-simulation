@@ -128,13 +128,13 @@ $$
 Therefore, the first motor angle is obtained from inverse kinematics.
 
 $$
-\beta_1=\operatorname{atan2}(z,y)-\operatorname{atan2}(k_2,k_1)
+\beta_1=\mathrm{atan2}(z,y)-\mathrm{atan2}(k_2,k_1)
 $$
 
 By substituting the auxiliary terms, the first motor angle becomes
 
 $$
-\beta_1=\operatorname{atan2}(z,y)-\operatorname{atan2}\left(L_2\sqrt{1-C^2},L_1+L_2C\right)
+\beta_1=\mathrm{atan2}(z,y)-\mathrm{atan2}\left(L_2\sqrt{1-C^2},L_1+L_2C\right)
 $$
 
 ---
@@ -182,7 +182,7 @@ $$
 Substituting beta1 and t2 gives
 
 $$
-\beta_2=\operatorname{atan2}(z,y)-\operatorname{atan2}\left(L_2\sqrt{1-C^2},L_1+L_2C\right)+C_4-\cos^{-1}(C)
+\beta_2=\mathrm{atan2}(z,y)-\mathrm{atan2}\left(L_2\sqrt{1-C^2},L_1+L_2C\right)+C_4-\cos^{-1}(C)
 $$
 
 As a result, the target coordinate can be converted into two motor angles.
@@ -354,3 +354,20 @@ $$
 $$
 \theta_6=\mathrm{const}\Rightarrow\phi_{EE}=\mathrm{const}
 $$
+
+---
+
+## File Structure
+
+```text
+Parallelogram-Linkage-Robot-Arm/
+├── README.md
+├── assets/
+│   ├── cad_model.png
+│   ├── mechanism_geometry.png
+│   ├── two_link_model.png
+│   ├── lower_angle_definition.png
+│   ├── upper_angle_definition.png
+│   └── demo.gif
+└── matlab/
+    └── robot_kinematics_simulation.m
