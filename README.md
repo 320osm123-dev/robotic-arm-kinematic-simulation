@@ -87,7 +87,7 @@ $$
 
 ## MATLAB Simulation
 
-<video src="demo.mp4" width="100%" controls></video>
+<video src="demo.gif" width="100%" controls></video>
 
 The MATLAB animation verifies that the modeled robotic arm moves while maintaining the end-effector link parallel to the ground.
 
