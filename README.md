@@ -1,4 +1,4 @@
-# Kinematic Analysis of a Parallelogram Linkage Robot Arm
+# Ground-Parallel End-Effector Robotic Arm IK Simulation
 
 <p align="center">
   <img src="cad_model.png" width="200">
